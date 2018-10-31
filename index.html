@@ -7,14 +7,24 @@
   
   
   
-  
+      <link rel="stylesheet" href="css/style.css">
+
   
 </head>
 
 <body>
 
-  <div id="app">
-  {{sample}}
+  <div id="app" :style="{ 'background': 'url(' + relatedImgUrl + ') 50% 50% no-repeat', 'background-size': 'cover'}" > 
+  <h1>Free code camp whether app</h1>
+  <div class="flexed flexed--center">
+    <div class="detail location">
+      My Location: {{location}}
+    </div>
+    <div class="detail temperature">
+      Temperature outside: {{degree}} <span>{{currentDegreeMode}}</span>
+      
+    </div>
+  </div>
 </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script>
 
