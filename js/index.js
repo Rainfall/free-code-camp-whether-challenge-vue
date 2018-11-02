@@ -11,7 +11,8 @@ new Vue({
     degree: null,
     degreeModes: ['C°', 'F°'],
     currentDegreeMode: 'C°',
-    relatedImgUrl: 'https://images.unsplash.com/photo-1533612773272-7230cca4169e'
+    relatedImgUrl: 'https://images.unsplash.com/photo-1533612773272-7230cca4169e',
+    weatherIcon: '',
   },
   methods: {
     
@@ -31,6 +32,9 @@ new Vue({
       self.$http.get('https://fcc-weather-api.glitch.me/api/current?lat='+self.location.lat+'&lon='+self.location.lon).then((response) => {
         console.log(response);
         self.location.name = response.body.name;
+        self.degree = response.body.main.temp;
+        self.relatedImgUrl = 'https://source.unsplash.com/featured/?'+response.body.weather[0].main;
+        self.weatherIcon = response.body.weather[0].icon;
       });
     }
     

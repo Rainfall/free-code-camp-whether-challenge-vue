@@ -18,6 +18,7 @@ body {
 
 .flexed {
   display: flex;
+  align-items: center;
 }
 
 .flexed--center {
