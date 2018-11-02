@@ -30,3 +30,12 @@ body {
   background: rgba(0,0,0,0.7);
   padding: 10px 20px;
 }
+
+.degree-mode {
+  cursor: pointer;
+  border-bottom: 1px solid currentColor;
+}
+
+.degree-mode:hover {
+  color: #c4c451;
+}

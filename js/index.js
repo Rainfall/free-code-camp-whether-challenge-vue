@@ -21,6 +21,7 @@ new Vue({
         navigator.geolocation.getCurrentPosition((position)=>{
           this.location.lat = position.coords.latitude;
           this.location.lon = position.coords.longitude;
+          this.getMainInfo();
         });
       } else { 
         alert('Update your browser =) ')
@@ -35,17 +36,36 @@ new Vue({
         self.degree = response.body.main.temp;
         self.relatedImgUrl = 'https://source.unsplash.com/featured/?'+response.body.weather[0].main;
         self.weatherIcon = response.body.weather[0].icon;
+        
       });
+    },
+    
+    changeMode() {
+      let self = this;
+      for (let mode of this.degreeModes) {
+        if (mode != this.currentDegreeMode) {
+          this.currentDegreeMode = mode;
+          break;
+        }
+      }
     }
     
   },
   
   created: function() {
     this.getCurrentLocation();
-    this.getMainInfo();
   },
   
-  updated: function() {
-    this.getMainInfo();
+  filters: {
+    toFahr(value, mode) {
+      if (mode == 'F°') {
+        var degree = value;
+        degree = degree*9/5 + 32;
+        return degree;
+      } else {
+        return value;
+      }
+    }
   }
+
 })

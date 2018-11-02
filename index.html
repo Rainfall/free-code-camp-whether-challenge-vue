@@ -25,7 +25,7 @@
       My Location: {{location.name}}.
     </div>
     <div class="detail temperature flexed">
-      Temperature outside: {{degree}} <span>{{currentDegreeMode}}</span> <span v-if="weatherIcon!=''"><img :src="weatherIcon" /></span>
+      Temperature outside: {{degree | toFahr(currentDegreeMode)}} <span @click="changeMode()" class="degree-mode">{{currentDegreeMode}}</span> <span v-if="weatherIcon!=''"><img :src="weatherIcon" /></span>
       
     </div>
     
