@@ -1,9 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   min-height: 100vh;
   color: #fff;
 }
 
-#app h1 {
+#app h1 { 
   color: #fff;
   background: #000;
   display: inline-block;
